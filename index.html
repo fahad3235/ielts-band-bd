@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Band Calculator BD</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1 data-i18n="title">IELTS Band Calculator BD</h1>
+    <p class="sub" data-i18n="subtitle">Overall band from your four section scores, plus a target planner.</p>
+  </div>
+  <button id="langBtn" class="lang" type="button">&#x9ac;&#x9be;&#x982;&#x9b2;&#x9be;</button>
+</header>
+
+<main>
+<section class="card" aria-labelledby="calcH">
+  <h2 id="calcH" data-i18n="calcHeading">Overall band calculator</h2>
+  <p class="hint" data-i18n="calcHint">Enter each section score (0 to 9, in 0.5 steps).</p>
+  <form id="calcForm" novalidate>
+    <div class="grid">
+      <label><span data-i18n="listening">Listening</span>
+        <input id="calc-listening" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="7.0">
+        <small class="err" id="err-listening"></small></label>
+      <label><span data-i18n="reading">Reading</span>
+        <input id="calc-reading" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="7.0">
+        <small class="err" id="err-reading"></small></label>
+      <label><span data-i18n="writing">Writing</span>
+        <input id="calc-writing" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="6.5">
+        <small class="err" id="err-writing"></small></label>
+      <label><span data-i18n="speaking">Speaking</span>
+        <input id="calc-speaking" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="6.5">
+        <small class="err" id="err-speaking"></small></label>
+    </div>
+    <button id="calcBtn" type="button" class="primary" data-i18n="calcBtn">Calculate overall band</button>
+  </form>
+  <div id="calcResult" class="result" style="display:none">
+    <div><span data-i18n="avgLabel">Average score</span>: <strong id="avgVal"></strong></div>
+    <div class="big"><span data-i18n="overallLabel">Overall band</span>: <strong id="overallVal"></strong></div>
+    <div id="descVal" class="desc"></div>
+    <p id="savedNote" class="saved" data-shown="0"></p>
+  </div>
+</section>
+
+<section class="card" aria-labelledby="planH">
+  <h2 id="planH" data-i18n="plannerHeading">Target planner</h2>
+  <p class="hint" data-i18n="plannerHint">Pick a target band. Fill in sections you already scored; leave the rest blank.</p>
+  <label class="target"><span data-i18n="targetLabel">Target overall band</span>
+    <select id="plan-target"></select></label>
+  <div class="grid">
+    <label><span data-i18n="listening">Listening</span>
+      <input id="plan-listening" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="&#x2014;">
+      <small class="err" id="plan-err-listening"></small></label>
+    <label><span data-i18n="reading">Reading</span>
+      <input id="plan-reading" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="&#x2014;">
+      <small class="err" id="plan-err-reading"></small></label>
+    <label><span data-i18n="writing">Writing</span>
+      <input id="plan-writing" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="&#x2014;">
+      <small class="err" id="plan-err-writing"></small></label>
+    <label><span data-i18n="speaking">Speaking</span>
+      <input id="plan-speaking" type="number" min="0" max="9" step="0.5" inputmode="decimal" placeholder="&#x2014;">
+      <small class="err" id="plan-err-speaking"></small></label>
+  </div>
+  <button id="planBtn" type="button" class="primary" data-i18n="planBtn">Plan my target</button>
+  <div id="planResult" class="result" style="display:none"></div>
+</section>
+
+<section class="card" aria-labelledby="guideH">
+  <h2 id="guideH" data-i18n="guideHeading">Band guide</h2>
+  <p class="hint" data-i18n="guideHint">Official IELTS band descriptors (whole bands; half bands sit between two rows).</p>
+  <table class="guide">
+    <thead><tr><th id="bandCol">Band</th><th id="descCol">Descriptor</th></tr></thead>
+    <tbody id="guideBody"></tbody>
+  </table>
+</section>
+
+<section class="card" aria-labelledby="histH">
+  <h2 id="histH" data-i18n="historyHeading">History</h2>
+  <div id="historyList"></div>
+  <div class="row">
+    <button id="exportBtn" type="button" data-i18n="exportBtn">Export JSON</button>
+    <label class="filebtn"><span data-i18n="importBtn">Import JSON</span>
+      <input id="importFile" type="file" accept=".json,application/json" hidden></label>
+    <span id="importMsg" class="msg"></span>
+  </div>
+  <div class="row">
+    <label><span data-i18n="clearLabel">Type DELETE to erase all history:</span>
+      <input id="clearInput" type="text" placeholder="DELETE"></label>
+    <button id="clearBtn" type="button" class="danger" data-i18n="clearBtn">Erase all</button>
+    <span id="clearMsg" class="msg"></span>
+  </div>
+  <p class="hidden-cols" aria-hidden="true"><span id="dateCol"></span><span id="scoresCol"></span><span id="overallCol"></span></p>
+</section>
+</main>
+
+<footer><p data-i18n="footer">Personal practice tool. Not an official IELTS score, and not affiliated with IELTS, the British Council, IDP, or Cambridge. Always confirm your result with an official source.</p></footer>
+
+<script src="logic.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

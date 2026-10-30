@@ -1,0 +1,40 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f2f5f8;color:#1c2733;line-height:1.5}
+.topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;background:#0f2a4a;color:#fff;padding:18px 20px}
+.topbar h1{margin:0;font-size:1.5rem}
+.sub{margin:4px 0 0;opacity:.85}
+.lang{background:#14b8a6;color:#fff;border:0;border-radius:8px;padding:9px 16px;font-size:1rem;cursor:pointer;white-space:nowrap}
+main{max-width:760px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:0 1px 4px rgba(15,42,74,.12)}
+.card h2{margin:0 0 6px;color:#0f2a4a}
+.hint{margin:0 0 14px;color:#52616f}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+label{display:block;font-weight:600}
+input[type=number],input[type=text],select{width:100%;padding:10px;margin-top:4px;border:1px solid #c3ccd6;border-radius:8px;font-size:1rem;background:#fff}
+.err{display:block;color:#b42318;min-height:1.2em;font-weight:400;font-size:.9rem}
+button{cursor:pointer}
+.primary{background:#0f2a4a;color:#fff;border:0;border-radius:8px;padding:11px 20px;font-size:1rem}
+.danger{background:#b42318;color:#fff;border:0;border-radius:8px;padding:10px 16px}
+.mini{background:#eef2f6;border:1px solid #c3ccd6;border-radius:6px;padding:4px 10px}
+.filebtn{display:inline-block;background:#eef2f6;border:1px solid #c3ccd6;border-radius:8px;padding:9px 14px;cursor:pointer}
+.result{margin-top:16px;padding:14px;background:#e8f6f3;border:1px solid #14b8a6;border-radius:10px}
+.result .big{font-size:1.4rem;color:#0f2a4a}
+.desc{font-size:1.05rem}
+.saved{color:#0b6b5e;margin:8px 0 0}
+.warn{color:#b42318}
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px 6px;border-bottom:1px solid #e3e8ee;text-align:left}
+.guide td:first-child{font-weight:700}
+.empty{color:#52616f}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.msg{color:#0b6b5e}
+.target{max-width:280px;margin-bottom:14px}
+.hidden-cols{display:none}
+footer{max-width:760px;margin:0 auto;padding:0 16px 28px;color:#52616f;font-size:.9rem}
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .topbar h1{font-size:1.25rem}
+  .topbar{padding:14px}
+  main{padding:10px}
+  .card{padding:14px}
+}
